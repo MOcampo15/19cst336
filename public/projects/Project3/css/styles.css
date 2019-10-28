@@ -1,0 +1,47 @@
+.jumbotron {
+    text-align: center;
+    height: 200px;
+    font-size: 65px;
+}
+
+h1,footer {
+    color: #034efc;
+    font-family: 'Big Shoulders Text', cursive;
+}
+
+footer {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 150px;
+}
+
+h1 {
+    text-decoration: underline;
+    font-size: 60px;
+}
+
+h4 {
+     font-family: 'Open Sans Condensed', sans-serif;
+     font-size: 25px;
+}
+#weather {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    text-align: left;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: bold;
+    margin-left: 30px;
+    line-height: 25px;
+}
+
+button {
+    text-decoration: bold;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: left;
+
+}
+

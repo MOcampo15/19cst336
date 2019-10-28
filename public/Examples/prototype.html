@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>objects,prototypes,new </title>
+    </head>
+    <body>
+        <script>
+            //objects
+            /*global kia*/ 
+            let kia = {
+                make: 'kia',
+               model: 'sedona',
+                year: 2019,
+          accelerate: function(rate) {
+                    console.log("ka(r): this is what this is", this);
+                    console.log('ka(r): accelerating at', rate);
+                }
+            };
+            
+            console.log('make of car is', kia.make);
+            console.log('model of car is', kia["model"]);
+            
+            kia.accelerate(32);
+            
+            kia["accelerate"](9.8);
+            
+            function Car(make,model,year) {
+                let self = this;
+                this.make = make;
+                this.model = model;
+                this.year = year;
+                this.accelerate = function(rate) {
+                    console.log("Ca(r): this is what self is", self);
+                    console.log("Ca(r):this is what this is", this);
+                    console.log('Ca(r): accelerating', rate);
+                }
+            }
+            
+            let ford = new Car('ford', 'mustang', 2019);
+            console.log('ford object is', ford);
+            //Object.setPrototypeOf
+            
+            ford.accelerate(200);
+            
+            //typeOf
+            
+        </script>
+
+    </body>
+</html>

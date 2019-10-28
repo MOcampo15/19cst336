@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Midterm: YouTube</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        
+        <script>
+        
+        $(document).ready(function() {
+            
+            //Event Listeners
+            $("about").on("click",like); //NOT DONE YET
+           
+            $("#likes").on("change", function() {
+                $.ajax({
+                      method: "GET", 
+                         url: "https://cst336.herokuapp.com/projects/api/videoLikesAPI.php?videoId=ysVeiqqQhgc", 
+                    dataType: "json", 
+                        data: { "like": $("#like").val() }, 
+                     success: function(result,status) {
+                         $("#like").html(result.like); 
+                         $("#dislike").html(result.dislike);
+                         
+                     }        
+                }); // ajax
+            }); // likes and dislikes
+            
+        }
+        </script>
+        
+    </head>
+    
+    <body class = "text-center ">
+        
+        <form id="like" method="get" action="cancel_like.png">
+        <h1 class = "jumbotron"> CST 336 Midterm: YouTube</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ysVeiqqQhgc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><br> 
+        <button type="button" id="comments" class="btn btn-secondary"> See Comments</button> 
+        <button type="button" id="about" class="btn btn-secondary"> Answer Question</button>
+        <input type="image" id="image" class="btn btn-secondary" alt="bluelike" src="img/bluelike.png" width="55" height="48">
+        <input type="image" id="image" class="btn btn-secondary" alt="graylike" src="img/graylike.png" width="55" height="48"> 
+        <h6>965</h6>
+        <input type="image" id="image" class="btn btn-secondary" alt="bluedislike" src="img/graydislike.png" width="55" height="48"> 
+        <h6>82</h6>
+        <input type="image" id="image" class="btn btn-secondary" alt="graydislike" src="img/bluedislike.png" width="55" height="48">
+        
+    <h3>What was this video about?</h3> 
+    <select id="about">  <!---used to make dropdown list--->
+        <option value='default'selected>Select the Best Answer</option>
+        <option value='csu'> Admission Process</option>
+        <option value='school'> Clubs and Extracurriculars</option>
+        <option value='classes'>Classes</option>
+    </select>
+    
+     <footer>
+            <hr>
+            CST 336 Internet Programming. 2019 &copy;Ocampo <br />
+            <strong> Disclaimer:</strong> The information in this webpage is fictitious.It is used for academic purposes only. <br />
+            
+            <font color="green">1 All elements are included (video and buttons)	10</font><br>
+            <font color="green">Initial number of likes/dislikes is displayed from API when loading page	10</font> <br>
+            <font color="green">3	When clicking on any like/dislike button, it's hidden and the other blue/grayedout button is displayed	10</font> <br>
+            <font color="red">4	When clicking on any like/dislike button, the corresponding value is updated via an AJAX call	20</font><br>
+            <font color="red">5	When clicking on "See Comments", author, date, and comment are displayed via AJAX in the following format: Author Date Comment	20</font><br>
+            <font color="red">6	When clicking on "See Comments, comments are in random order	10</font><br>
+            <font color="red">7	When clicking on "See Comments", stars are displayed based on the RATING value	10</font><br>
+            <font color="green">8	When clicking on "Answer Question" a dropdown question is displayed	5</font><br>
+            <font color="black">9	When answering the question, color-coded feedback is displayed	15</font><br>
+            <font color="green">10	Page has nice design: content is centered, all buttons right below the video	10</font><br>
+            <font color="green">11	Rubric is copied, pasted, and updated to reflect the work you have done	3</font>
+            TOTAL
+        </footer>
+    </body>
+</html>

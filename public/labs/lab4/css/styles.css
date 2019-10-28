@@ -1,0 +1,42 @@
+.jumbotron {
+    text-align: center;
+    height: 200px;
+}
+
+h1,footer{
+    color: #034efc;
+    font-family:'Quicksand', sans-serif;
+}
+
+footer {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    text-decoration: underline;
+    font-size: 60px;
+}
+
+body {
+    text-align: left;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-decoration: bold;
+    margin-left: 30px;
+    line-height: 25px;
+}
+
+button {
+    text-decoration: bold;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-align: left;
+}
+
+h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 40px;
+    color: #5e03fc;
+    text-align: center;
+    padding: 300px;
+    background-image: url(confetti3.gif);
+}

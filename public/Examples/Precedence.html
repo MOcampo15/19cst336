@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS Precedence</title>
+        <style>
+            #box1 {
+                /*background-color: blue;*/
+                width:200px;
+                height:200px;
+            }
+            
+            .blue{
+                background-color: blue;
+            }
+            
+        </style>
+        
+        <style src="precedence.css"></style>
+    </head>
+    <body>
+        
+    <style>
+        
+    </style>
+    
+    <main>
+        <!--<div id ="box1" style="background-color:yellow;"></div>-->
+        <div id ="box1" class="green blue">
+            
+        </div>
+    </main>
+    
+    <style>
+        
+    </style>
+    
+    </body>
+</html>

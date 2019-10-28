@@ -1,0 +1,14 @@
+<script>
+    //Given a full name, jumble up all the letters
+    function randomWords (word){
+    var randomWords = '';
+    word = word.split('');
+    while (word.length > 0) {
+      randomWords +=  word.splice(word.length * Math.random() << 0, 1);
+    }
+    return randomWords;
+
+}
+
+    
+</script>

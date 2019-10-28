@@ -1,0 +1,70 @@
+body {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 25px;
+    background-image: linear-gradient(to bottom right, #FD8E08, yellow);
+    text-align: center;
+}
+
+.jumbotron {
+    height: 250px;
+    width: 100%;
+}
+h1 {
+    text-shadow: 4px 4px #FFFFFF;
+    font-family: 'Indie Flower', cursive;
+    font-size: 35px;
+    border: 4px dotted;
+    border-color: black;
+    font-weight: bolder;
+}
+
+h3 {
+    font-family: 'Indie Flower', cursive;
+    font-stretch: expanded;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    letter-spacing: 3px;
+    font-weight: bold;
+
+}
+
+#applecider, #applepie, #applespice {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+footer {
+    font-family: 'Indie Flower', cursive;
+    font-size: 15px;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 1em;
+    margin-left: 4em;
+    margin-right: 4em;
+    font-size: 30px;
+    
+}
+
+input {
+    cursor: pointer;}
+    
+button {
+  background-color: #FFFFFF;
+  border: solid;
+  border-radius: 12px;
+  color: black;
+  font-family: 'Indie Flower', cursive;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: bold;
+  display: inline-block;
+  font-size: 30px;
+}
+
+
+.result {
+    display:none;
+}
+
