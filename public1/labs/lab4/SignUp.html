@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Sign Up Page </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+    <h1 class="jumbotron"> Sign Up! </h1>
+    <form id="signupForm" method="post" action="welcome.html">
+        
+      First Name: <input type="text"  name="fName"><br>
+      Last Name:  <input type="text"  name="lName"><br>
+      Gender:     <input type="radio" name="gender" value="m"> Male
+                  <input type="radio" name="gender" value="f"> Female<br><br>
+                  
+      Zip Code:   <input type="text"  name="zip"  id="zip"><br>
+      City:       <span id="city"></span><br>
+      Latitude:   <span id="latitude"></span><br>
+      Longitude:  <span id="longitude"></span>
+      <br>
+      
+      State:
+      <select id="state" name="state">
+          option value=""  >Select One</option>
+              <option value="ca">California</option>
+              <option value="ny">New York</option>
+              <option value="tx">Texas</option>
+      </select> <br/>
+      
+      Select a County: <select id="county"></select><br><br>
+      
+      Desired Username: <input type="text"     id="username" name="username"><br>
+                        <span    id="usernameError"></span><br>
+      Password:         <input type="password" id="password" name="password"><br><br>
+      Password Again:   <input type="password" id="passwordAgain"><br>
+                        <span    id="passwordAgainError"></span> <br /><br>
+      
+      <input type="submit" value="Sign Up!">
+      </form>
+      
+      <script src="js/functions.js"></script>
+      
+      <footer>
+            <hr>
+            CST 336 Internet Programming. 2019 &copy;Ocampo <br />
+            <strong> Disclaimer:</strong> The information in this webpage is fictitious.It is used for academic purposes only. <br />
+            
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather from API</title>
+        <meta charset="utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Text|Open+Sans|Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+         <body class="text-center">
+             
+        <h1 class="jumbotron">Weather</h1>
+        
+        <h4>Zip Code: <input type="text" id="zip" size = "10" </h4>
+        
+        <br>
+        <h4>Weather: </h4>
+        <span id="weather"></span><br>
+        
+        <!---<img src="img/sunny.png" alt="Sunny Sky" /> --->
+        <br> <br>
+        <button id = "search-button" class="btn btn-info">Search Zipcode</button>
+        
+
+        <script src="js/functions.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=init"></script>
+        
+        <footer>
+            <hr>
+            CST 336 Internet Programming. 2019 &copy;Ocampo <br />
+            <strong> Disclaimer:</strong> The information in this webpage is fictitious.It is used for academic purposes only. <br />
+            
+        </footer>
+        
+        
+        
+
+    </body>
+</html>

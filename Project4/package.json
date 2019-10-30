@@ -1,0 +1,22 @@
+{
+  "name": "project4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MOcampo15/19cst336.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MOcampo15/19cst336/issues"
+  },
+  "homepage": "https://github.com/MOcampo15/19cst336#readme",
+  "dependencies": {
+    "@biffud/random-bg-color": "^1.1.1"
+  }
+}

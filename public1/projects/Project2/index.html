@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Which Fall Dessert Best Matches Your Personality? </title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    </head>
+    <body>
+                
+        <h1 class="jumbotron"><img src="img/pumpkin.gif" alt="Pumpkin">Which Fall Dessert Best Matches your Personality? Take this Quiz!
+        <img src="img/pumpkin.gif" alt="Pumpkin"></h1>
+        <form id="fallpersonalityquiz">
+        <!---Question 1--->
+        <h3>1. What would be your perfect Fall Vacation Spot? </h3>
+        <input type="radio"  name="city" value ="relaxed"> Montgomery, Vermont <br>
+        <input type="radio"  name="city" value ="adventurous"> Seoul, South Korea <br>
+        <input type="radio"  name="city" value ="bubbly" > Paris, France <br>
+        <br>
+        
+        <!---Question 2--->
+        <h3>2. Pick a Fall Breakfast: </h3>
+        <input type="radio" name="breakfast" value="adventurous"> Pumpkin Pancakes <br>
+        <input type="radio" name="breakfast" value="relaxed" > Sausage and Cheese Breakfast Casserole <br>
+        <input type="radio" name="breakfast" value="bubbly"> Mushroom Quiche <br>
+        <br>
+        
+        <!---Question 3 --->
+        <h3>3. Pick a Fall Activity: </h3>
+        <input type="radio" name="activity" value="relaxed"> Apple Picking <br>
+        <input type="radio" name="activity" value="bubbly"> Baking <br>
+        <input type="radio" name="activity" value="adventurous"> Hiking <br>
+        <br>
+        
+        <!---Question 4--->
+        <h3>4. Pick a perfect Fall Drink: </h3>
+        <input type="radio" name="drink" value="bubbly"> Chai Latte <br>
+        <input type="radio" name="drink" value="adventurous"> Pumpkin Spice Latte <br>
+        <input type="radio" name="drink" value="relaxed"> Hot Chocolate <br>
+        <br>
+        
+        <!---Question 5--->
+        <h3>5. Pick a movie to watch during Fall: </h3>
+        <input type="radio" name="movie" value="relaxed"> The Nightmare Before Christmas <br>
+        <input type="radio" name="movie" value="adventurous"> Halloween <br>
+        <input type="radio" name="movie" value="bubbly"> I've Got Mail <br>
+        <br>
+        
+        <!---Question 6--->
+        <h3>6. Pick an Autumn Candle Scent: </h3>
+        <input type="radio" name="candle" value = "relaxed"> Flannel <br>
+        <input type="radio" name="candle" value = "bubbly"> Pumpkin Pecan <br>
+        <input type="radio" name="candle" value = "adventurous"> Bourbon Maple <br>
+        
+        <br>
+        
+        <!---Submit Button--->  
+        <button id = 'Submit'> Submit </button>
+    </form>
+    
+    <div class="result" id="bubbly">
+        <h2> You are a Apple Cider Donut!</h2>
+        <img src="img/applecider.png" alt="apple cider" id="applecider">
+        <h4>You are a very bubbly and upbeat person! You love to try new things
+        and you always put your best foot forward. You are very kind-hearted 
+        which is why people like to be around you because you just radiate positive energy! You 
+        have a great outlook on life and if you're ever down you pick yourself right up. </h4>
+    </div>
+    <div class="result" id="relaxed">
+        <h2> You are Apple Pie a la Mode!</h2>
+        <img src="img/applepie.png" alt="apple pie"id="applepie">
+        <h4> You are a very relaxed and chill person. You are a realist when 
+        it comes to many aspects in life and you give off an aura of relaxation. You enjoy
+        the simple things in life and you like to take things in life one step at a time. </h4>
+    </div>
+    <div class="result" id="adventurous">
+        <h2> You are a Apple Spice Cake!</h2>
+        <img src="img/applespice.png" alt="apple spice" id="applespice">
+        <h4> You are a very adventurous person and you're never afraid to try new things.
+        You tend to always be active and are usually the one to plan fun outings with your friends.
+        You don't dwell too much on problems and your friends love your 
+        fun energy! </h4>
+    </div>
+
+        <!---Script Tags--->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
+            crossorigin="anonymous"></script>
+         
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script>
+        <script SRC="js/functions.js"> </script>
+
+
+        <footer>
+            <hr>
+            CST 336 Internet Programming. 2019&copy; Ocampo <br />
+            <strong> Disclaimer:</strong> The information in this webpage is fictitious.It is used for academic purposes only. <br />
+            
+        </footer>
+    </body>
+</html>
