@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pixabay Search Results</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1> Pixabay Search Results </h1>
+        <!---in order to send information to the server use <form> tags--->
+        <!---action attribute specifies what is the file that is going to be rendered--->
+        <form action = "/results">
+            <!---in order to submit information to server need to use "name" attribute, 
+            in order to know what info to send --->
+            
+            Keyword: <input type="text" name="keyword">
+            <button> Search </button>
+            
+            Orientation: 
+                <select id="orientation">
+                <option value = "horizontal">Vertical</option>
+                <option value = "vertical">Horizontal</option>
+        </select>
+            
+        </form> <br>
+        <p>TODO: Display several images here: <br> 
+        <img src ='<%= images.hits[0].largeImageURL %>' width='250'>
+        Likes: <%=images.hits[0].likes %> <br>
+        <img src ='<%= images.hits[1].largeImageURL %>' width='250'>
+        Likes: <%=images.hits[1].likes %> <br>
+        <img src ='<%= images.hits[2].largeImageURL %>' width='250'>
+        Likes: <%=images.hits[2].likes %> <br>
+        <img src ='<%= images.hits[3].largeImageURL %>' width='250'>
+        Likes: <%=images.hits[3].likes %> <br>
+        </p>           
+                    
+                    
+                    
+        
+    </body>
+</html>

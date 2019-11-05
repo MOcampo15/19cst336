@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+    font-family: 'McLaren', cursive;
+    color: white;
+}
+
+button {
+  background-color: #98CAF5; /* Green */
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+p, h3 {
+    font-family: 'McLaren', cursive;
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+form {
+    color: white;
+    text-align: center;
+}
