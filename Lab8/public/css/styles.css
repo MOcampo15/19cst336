@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px 'Roboto Condensed', sans-serif;
+  background-color: #ADD3F5;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.jumbotron {
+  border: solid 1px;
+  height: 200px;
+  width: 95%;
+  font-weight: bolder;
+}
+
+h1, h3, footer{
+  font-family: 'Playfair Display', serif;
+}
+
+#winner {
+    left: 0;
+    line-height: 50px;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+  
+}

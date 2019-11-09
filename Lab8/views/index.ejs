@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> US Quiz (Express Version) </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    
+    <h1 class="jumbotron"> US Geography Quiz <br> Express Version </h1>
+    <!---Question 1--->
+    <h3><span id="markImg1"></span>What is the capital of California?</h3>
+    <input type="text" id="q1">
+    <br><br>
+    <div id="q1Feedback"></div>
+    <br>
+    
+     <!---Question 2 --->
+    <h3><span id="markImg2"></span>What is the longest river?</h3>
+        <select id="q2">
+            <option value="">Select One</option>
+            <option value="ms">Mississippi</option>
+            <option value="mo">Missouri</option>
+            <option value="co">Colorado</option>
+            <option value="de">Delaware</option>
+        </select>
+        <br><br>
+    <div id="q2Feedback"></div>
+    <br>
+    
+     <!---Question 3 --->
+    <h3><span id="markImg3"></span>What presidents are carved into Mount Rushmore?</h3>
+    <input type="checkbox" id="Jackson">   <label for="Jackson"> A. Jackson  </label>
+    <input type="checkbox" id="Franklin">  <label for="Franklin"> B. Franklin </label>
+    <input type="checkbox" id="Jefferson">  <label for="Jefferson"> T. Jefferson </label>
+    <input type="checkbox" id="Roosevelt">  <label for="Roosevelt"> T. Roosevelt </label>
+    <br><br>
+    <div id="q3Feedback"></div>
+    <br>
+    
+     <!---Question 4 --->
+    <h3><span id="markImg4"></span>What is the smallest US state?</h3>
+    <div id="q4Choices"></div>
+    <div id="q4Feedback"></div>
+    <br></br>
+    
+     <!---Question 5 --->
+    <h3><span id="markImg5"></span>Which is the current seal of California?</h3>
+    <img src="/img/seal1.png" alt="seal1" class="q5choice" id="seal1">
+    <img src="/img/seal2.png" alt="seal2" class="q5choice" id="seal2">
+    <img src="/img/seal3.png" alt="seal3" class="q5choice" id="seal3">
+    <br><br>
+    <div id="q5Feedback"></div>
+    <br> 
+    
+    <!---Question 6--->
+    <h3><span id="markImg6"></span>In what year did the US Civil War begin?</h3>
+    <input type="text" id="q6">
+    <br><br>
+    <div id="q6Feedback"></div>
+    <br>
+        
+    <!---Question 7--->
+    <h3><span id="markImg7"></span>What is the capital of the United States?</h3>
+    <select id="q7">
+    <option value = "">Select One</option>
+    <option value = "la">Los Angeles</option>
+    <option value = "wa">Washington D.C.</option>
+    <option value = "co">San Francisco</option>
+    <option value = "de">New York City</option>
+    </select>
+    <br><br>
+    <div id="q7Feedback"></div>
+    <br>
+        
+    <!---Question 8 --->
+        <h3><span id="markImg8"></span>What image is the flag of the United States?</h3>
+        <img src="/img/usflag.png" alt = "Flag 1" class="q8choice" id="flag1">
+        <img src="/img/ukflag.png" alt = "Flag 2" class="q8choice" id="flag2">
+        <img src="/img/franceflag.png" alt = "Flag 3" class="q8choice" id="flag3">
+        <div id="q8Feedback"></div>
+        <br></br>
+    
+    <button class="btn btn-outline-success submit"> Submit Quiz </button>
+    <br><br>
+    <h2 id="totalScore" class="text-info"></h2>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+       $(document).ready(function(){
+            //Event Listeners 
+            $(".q5choice").on("click", function(){
+                $(".q5choice").css("background-color",""); //resets background color
+                $(this).css("background-color", "rgb(252, 3, 3)");
+           }); 
+           $(".q8choice").on("click", function(){
+               $(".q8choice").css("background-color",""); //resets background color
+                $(this).css("background-color", "rgb(252, 3, 3)");
+           })
+           
+                score = 0;
+                let q1Response = $("#q1").val().toLowerCase();
+                let q2Response = $("#q2").val();
+                let q4Response = $("input[name=q4]:checked").val();
+                let q6Response = $("#q6").val();
+                let q7Response = $("#q7").val();
+           
+            displayq4Choices();
+                
+                function displayq4Choices() {
+                    let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
+                    
+                    for (let i=0; i < q4ChoicesArray.length; i++) {
+                        $("#q4Choices").append(` <input type="radio" name="q4" id="${q4ChoicesArray[i]}"
+                        value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${
+                            q4ChoicesArray[i]}</label>`);
+                        
+                    }
+                }
+                
+                 function rightAnswer(index) {
+                    $(`#q${index}Feedback`).html("Correct!");
+                    $(`#q${index}Feedback`).attr("class", "bg-success text-white");
+                    $(`#markImg${index}`).html("<img src = 'img/checkmark.png'>");
+                    score += 20;
+                }
+                
+                function wrongAnswer(index) {
+                    $(`#q${index}Feedback`).html("Incorrect!");
+                    $(`#q${index}Feedback`).attr("class", 'bg-warning text-white');
+                    $(`#markImg${index}`).html("<img src = 'img/xmark.png' alt = 'xmark'>");
+                }
+                
+                function smallAnswer(index) {
+                    $(`#q${index}Feedback`).html("Correct!");
+                    $(`#q${index}Feedback`).attr("class", "bg-success text-white");
+                    $(`#markImg${index}`).html("<img src = 'img/checkmark.png'>");
+                    score += 12.5;
+                }
+                
+                //Question 1
+                if(q1Response == "sacramento") {
+                    rightAnswer(1);
+                }else {
+                    wrongAnswer(1);
+                }
+                
+                //Question 2 
+               if(q2Response == "mo") {
+                   rightAnswer(2);
+               }else {
+                   wrongAnswer(2);
+               }
+               
+               //Question 3 
+               if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked")
+                     && !$("#Jackson").is(":checked")&& !$("#Franklin").is(":checked")) {
+                         rightAnswer(3);
+                     }else {
+                         wrongAnswer(3);
+                     }
+                     
+                //Question 4
+                if(q4Response == "Rhode Island") {
+                    rightAnswer(4);
+                }else {
+                    wrongAnswer(4);
+                }
+                
+                //Question 5
+                if ($("#seal2").css("background-color") == "rgb(255, 255, 0)") {
+                    rightAnswer(5);
+                } 
+                else {
+                    wrongAnswer(5);
+                }
+                
+                //Question 6
+                if(q6Response == "1861") {
+                    smallAnswer(6);
+                }else {
+                    wrongAnswer(6);
+                }
+                
+                //Question 7 
+               if(q7Response == "wa") {
+                   smallAnswer(7);
+               }else {
+                   wrongAnswer(7);
+               }
+               
+               //Question 8
+                if ($("#flag1").css("background-color") == "rgb(255, 255, 0)") {
+                    smallAnswer(8);
+                } 
+                else {
+                    wrongAnswer(8);
+                }
+                
+           
+           //BEWARE THIS ERROR 
+           //SyntaxError: Unexpected token q in JSON at position 0 
+           // It means you forgot to convert your dta object to a string for transmission
+           
+           $(".submit").on("click touchstart", function(e) {
+             $.ajax({
+               url:"/",
+               method:"post", 
+               contentType: "application/json",
+               data:JSON.stringify({
+                   questions: {
+                       "1": $("#q1").val()
+                       
+                   }
+                   
+               }),
+               dataType: "json",
+               success: function(result){
+                   console.log('result of call to POST router', result);
+                   $("#q1").val(result.original.questions["1"]);
+                   $("#q2").val(result.original.questions["2"]);
+                   $("#q3").val(result.original.questions["3"]);
+                   $("#q4").val(result.original.questions["4"]);
+                   $("#q5").val(result.original.questions["5"]);
+                   $("#q6").val(result.original.questions["6"]);
+                   $("#q7").val(result.original.questions["7"]);
+                   $("#q8").val(result.original.questions["8"]);
+                   
+               },
+               error: function(xhr,status) {
+                   console.log('error calling to POST router', status)
+               },
+               complete:function(){
+                   
+               }
+           });
+       }); 
+})
+           
+    </script>
+        
+        <footer>
+            <hr>
+            CST 336 Internet Programming. 2019&copy; Ocampo <br />
+            <strong> Disclaimer:</strong> The information in this webpage is fictitious.It is used for academic purposes only. <br />
+            
+        </footer>
+   
+</body>
