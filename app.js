@@ -4,10 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var app = express();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var lab9Router = require('./public/labs/lab9/router'); 
-var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,11 +21,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/public/labs/lab9', lab9Router); 
+
+//////////////////////////////////
+//ROUTING
+/////////////////////////////////
+var lab9Router = require('./public/labs/lab9/router');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //app.use('/', exerRouter);
+app.use('/public/labs/lab9', lab9Router); 
 
 
 // catch 404 and forward to error handler
@@ -43,4 +49,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app; //this line is what works with require
+//module.exports = app; //this line is what works with require
+
+app.listen(process.env.PORT, process.env.IP, function() {
+    console.log("Running Express Server..."); 
+});

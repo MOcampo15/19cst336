@@ -9,10 +9,10 @@ router.get('/quotes', function(req, res, next) {
     const nameFilter = req.query.name; 
 
     const connection = mysql.createConnection({
-        host: 'jlg7sfncbhyvga14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'kgsp8cuninnyenel',
-        password: 'yxg1f7icahzihvun',
-        database: 'oheaxh89o3hnyvdk'
+        host: 'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'pqai7eyjjnf44uh5',
+        password: 'tg0cclip6o8u6n6b',
+        database: 'ddwnbsxcdd0glq33'
     });
 
     connection.connect();
