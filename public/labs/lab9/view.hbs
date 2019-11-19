@@ -1,12 +1,17 @@
 <script src="/labs/lab9/router.js"></script>
-<h1>{{title}}</h1>
-<hr />
-<!-- USE BOOTSTRAP FLEXBOX INSTEAD OF TABLES --> 
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<h1 align="center">{{title}}</h1>
+<hr/>
+
+<!---Keyword:<input type="text" name="keyword">
+            <button> Search </button>--->
+
 <table>
     <thead>
         <tr>
-            <th>quote</th>
-            <th>author</th>
+            <th>Quote</th>
+            <th>Author</th>
+            <th>Gender</th>
         </tr>
     </thead>
         
@@ -14,7 +19,8 @@
         {{#each quotes}}
             <tr>
                 <td>{{quote}}</td>
-                <td>{{fullName}}</td>
+                <td align="center">{{fullName}}</td>
+                <td align="center">{{gender}}</td>
             </tr>
         {{/each}} 
     </tbody>
