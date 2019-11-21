@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
 
 var app = express();
 
@@ -26,11 +27,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ROUTING
 /////////////////////////////////
 var lab9Router = require('./public/labs/lab9/router');
+var lab10Router = require('./public/labs/lab10/router');
+
+//Setup MySQL admin routes
+//This will take the route /myadmin away from you!!!
+// var mysqlAdmin = require('node-mysql-admin');
+// app.use(mysqlAdmin(app));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //app.use('/', exerRouter);
 app.use('/public/labs/lab9', lab9Router); 
+app.use('/public/labs/lab10', lab10Router);
 
 
 // catch 404 and forward to error handler
