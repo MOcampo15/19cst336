@@ -1,11 +1,16 @@
 <style>
     /* BASIC */
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        color: white;
+    }
     html {
         background-color: #56baed;
     }
     body {
         font-family: "Poppins", sans-serif;
-        height: 100vh;
+        height: 50vh;
     }
     a {
         color: #92badd;
@@ -103,7 +108,7 @@
         background-color: #f6f6f6;
         border: none;
         color: #0d0d0d;
-        padding: 15px 32px;
+        padding: 15px 25px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -246,6 +251,9 @@
         display: none;
     }
 </style>
+<h1>
+    Welcome to Lab 10: 
+</h1>
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
@@ -257,8 +265,8 @@
 
         <!-- Login Form -->
         <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
             <button id="loginButton" class="btn btn-primary fadeIn fourth mb-2">Login</button>
             <div id="message" class="alert alert-danger hidden m-2" role="alert">
                 This is a danger alert—check it out!
@@ -274,6 +282,8 @@
 </div>
 
 <script>
+/* global $ */
+/* global err */
     $(document).ready(function() {
         
         // $('#message').hide();
@@ -282,7 +292,7 @@
             e.preventDefault();
             $.ajax({
                 type: "POST",
-                url: "/auth/login",
+                url: "/lab10/login",
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify({
@@ -293,7 +303,7 @@
                     console.log("got login status back", result);
                     if (result.successful) {
                         // This will navigate to wherever i say...
-                        window.location.href = '/auth/dashboard';
+                        window.location.href = '/lab10/view';
                     }
                     else {
                         // Show an error message or something and stay here
@@ -309,6 +319,6 @@
                     console.log(status);
                 }
             });
-        })
+        });
     });
 </script>

@@ -1,28 +1,57 @@
-<script src="/labs/lab9/router.js"></script>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<h1 align="center">{{title}}</h1>
-<hr/>
+{{!--<script src="/labs/lab9/router.js"></script>--}}
+{{!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
+{{!--<h1 align="center">{{title}}</h1>--}}
+{{!--<hr/>--}}
 
-<!---Keyword:<input type="text" name="keyword">
-            <button> Search </button>--->
+{{!--<!---Keyword:<input type="text" name="keyword">--}}
+{{!--            <button> Search </button>--->--}}
 
-<table>
-    <thead>
-        <tr>
-            <th>Quote</th>
-            <th>Author</th>
-            <th>Gender</th>
-        </tr>
-    </thead>
+{{!--<table>--}}
+{{!--    <thead>--}}
+{{!--        <tr>--}}
+{{!--            <th>Quote</th>--}}
+{{!--            <th>Author</th>--}}
+{{!--            <th>Gender</th>--}}
+{{!--        </tr>--}}
+{{!--    </thead>--}}
         
-    <tbody>
-        {{#each quotes}}
-            <tr>
-                <td>{{quote}}</td>
-                <td align="center">{{fullName}}</td>
-                <td align="center">{{gender}}</td>
-            </tr>
+{{!--    <tbody>--}}
+{{!--        {{#each quotes}}--}}
+{{!--            <tr>--}}
+{{!--                <td>{{quote}}</td>--}}
+{{!--                <td align="center">{{fullName}}</td>--}}
+{{!--                <td align="center">{{gender}}</td>--}}
+{{!--            </tr>--}}
+{{!--        {{/each}} --}}
+{{!--    </tbody>--}}
+        
+{{!--</table>--}}
+
+<h1>{{title}}</h1>
+<hr />
+<!-- USE BOOTSTRAP FLEXBOX INSTEAD OF TABLES --> 
+
+<h3>Search Menu</h3>
+
+<p>Keyword: <input type="text" id="keyword"> </p>
+<p>Category: 
+    <select id="category">
+        <option value="">Select One</option>
+        {{#each category}}
+            <option value=`{{category}}`>{{category}}</option>
         {{/each}} 
-    </tbody>
-        
-</table>
+    </select>
+</p>
+<p>Author Name: 
+    <select id="authorName">
+        <option value="">Select One</option>
+    </select>
+</p>
+<p>Author's Gender:<br>
+    <input type="radio" name="gender" id="male" value="male"> 
+    <label for="male">Male</label>
+    <input type="radio" name="gender" id="female" value="female"> 
+    <label for="female">Female</label>
+</p>
+
+<input type="submit" value="Submit"><br><br>

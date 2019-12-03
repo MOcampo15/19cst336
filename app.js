@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-//var authExampleRouter = require('./routes/examples/auth/router');
-
 
 var app = express();
 
@@ -28,11 +26,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //////////////////////////////////
-//ROUTING
+//ROUTING:Labs
 /////////////////////////////////
 var lab9Router = require('./public/labs/lab9/router');
 var lab10Router = require('./public/labs/lab10/router');
 var proj4Router = require('./public/projects/Project4A/router');
+
+////Routing: Examples 
+var myauthRouter = require('./public/Examples/auth/router');
+
 
 //Setup MySQL admin routes
 //This will take the route /myadmin away from you!!!
@@ -44,8 +46,11 @@ app.use('/users', usersRouter);
 //app.use('/', exerRouter);
 app.use('/public/labs/lab9', lab9Router); 
 app.use('/public/labs/lab10', lab10Router);
-//app.use('/auth/', authExampleRouter);
 app.use('/public/projects/Project4A',proj4Router );
+
+// //Examples
+// app.use('/Examples/auth', authExampleRouter);
+app.use('/auth', myauthRouter); 
 
 //Enable sessions
 // catch 404 and forward to error handler

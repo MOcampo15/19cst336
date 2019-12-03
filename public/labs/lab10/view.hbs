@@ -1,6 +1,20 @@
 <h1>{{title}}</h1>
 <hr />
-<!-- USE BOOTSTRAP FLEXBOX INSTEAD OF TABLES -->
+<style>
+    h1{
+        text-align: center;
+        font-size: 40px;
+        color: color;
+    }
+    
+    table {
+        color: blue;
+        font-size: 15px;
+        
+    }
+    
+
+</style>
 <table>
     <tbody>
         <tr>
@@ -30,7 +44,7 @@
     $("#saveButton").on("click", function() {
         $.ajax({
             type: "POST",
-            url: "/lab/10/quotes/add",
+            url: "/lab10/quotes/add",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify({

@@ -10,6 +10,14 @@ router.get('/quotes/add', (req, res) => {
 
 });
 
+router.get('/quotes/login', (req, res) => {
+    
+    res.render('../public/labs/lab10/login', 
+    {
+        Title: 'Login: Welcome'
+    });
+});
+
 router.post('/quotes/add', function(req, res, next) {
 
     // Get a query string value for filter
