@@ -20,7 +20,7 @@ router.get('/quotes', function(req, res, next) {
         SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
         FROM l9_quotes q INNER JOIN
         l9_author a ON q.authorId = a.authorId
-        WHERE a.firstName LIKE '${nameFilter}'
+        /*WHERE a.firstName LIKE '${nameFilter}'*/
 `,
         function(error, results, fields) {
             if (error) throw error;
