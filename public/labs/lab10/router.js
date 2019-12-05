@@ -5,7 +5,8 @@ const mysql = require('mysql');
 router.get('/quotes/add', (req, res) => {
 
     res.render('../public/labs/lab10/view', {
-        title: 'Lab 10'
+        title: 'Lab 10',
+        data: {} // No data 
     });
 
 });
