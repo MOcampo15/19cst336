@@ -1,0 +1,100 @@
+<h1>{{title}}</h1>
+<hr />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<table>
+    
+    <thead>
+        
+        <tr>
+            
+            <th class="w-25">Quote</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>
+                <a class="btn btn-success" id="new" href="/labs/lab10/quotes/edit">Add New Quote</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each quotes}}
+        <tr>
+            <td>{{quote}}</td>
+            <td>{{fullName}}</td>
+            <td>{{category}}</td>
+            <td>
+                <a class="btn btn-primary" href="/labs/lab10/quotes/edit?={{quoteId}}">Edit</a>
+                <a class="btn btn-danger" href="/labs/lab10/quotes/delete?id={{quoteId}}">Delete</a>
+            </td>
+        </tr>
+{{/each}}
+    </tbody>
+</table>
+{{!--<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">--}}
+{{!--<h1>{{title}}</h1>--}}
+{{!--<hr />--}}
+{{!--<style>--}}
+{{!--    h1{--}}
+{{!--        text-align: center;--}}
+{{!--        font-size: 45px;--}}
+{{!--        color: color;--}}
+{{!--        font-family: 'Merriweather', serif;--}}
+{{!--    }--}}
+    
+{{!--    table {--}}
+{{!--        color: blue;--}}
+{{!--        font-size: 15px;--}}
+{{!--        font-family: 'Merriweather', serif;--}}
+        
+{{!--    }--}}
+    
+
+{{!--</style>--}}
+{{!--<table>--}}
+{{!--    <tbody>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>authorId</label></td>--}}
+{{!--            <td><input id="authorId" type="text" /></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>quote</label></td>--}}
+{{!--            <td><textarea rows="3" id="quote"></textarea></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>category</label></td>--}}
+{{!--            <td><input id="category" type="text" /></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td></td>--}}
+{{!--            <td><button id="saveButton">Add</button></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>id</label></td>--}}
+{{!--            <td><input id="id" type="text" disabled /></td>--}}
+{{!--        </tr>--}}
+{{!--    </tbody>--}}
+{{!--</table>--}}
+{{!--<script>--}}
+{{!--    $("#saveButton").on("click", function() {--}}
+{{!--        $.ajax({--}}
+{{!--            type: "POST",--}}
+{{!--            url: "/lab10/quotes/add",--}}
+{{!--            dataType: "json",--}}
+{{!--            contentType: "application/json",--}}
+{{!--            data: JSON.stringify({--}}
+{{!--                "authorId": $("#authorId").val(),--}}
+{{!--                "quote": $("#quote").val(),--}}
+{{!--                "category": $("#category").val(),--}}
+{{!--            }),--}}
+{{!--            success: function(data, status) {--}}
+{{!--                console.log("got data back", data);--}}
+{{!--            },--}}
+{{!--            error: function(xhr, status, error) {--}}
+{{!--                err = eval("(" + xhr.responseText + ")");--}}
+{{!--                console.error(err);--}}
+{{!--            },--}}
+            {{!--complete: function(data, status) { //optional, used for debugging purposes--}}
+{{!--                console.log(status);--}}
+{{!--            }--}}
+{{!--        });--}}
+{{!--    })--}}
+{{!--</script>--}}
