@@ -1,65 +1,126 @@
-<h1>Edit Appointment</h1>
-<hr/>
-
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+<h1>{{title}}</h1>
+<hr />
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 <table>
-    
     <tbody>
-
-        <tr> 
-            <td><label>Date</label></td>
-            <td><input rows="3" id="quote">{{appointment.date}}</input></td>
+        <tr>
+            <td><label>authorId</label></td>
+            <td>
+                <input id="date" type="text" value="{{data.date}}"/>
+            </td>
         </tr>
         <tr>
-            <td><label>Start Time</label></td>
-            <td><input id="category" type ="text" value ="{{appointment.start_time}}"/></td>
+            <td><label>quote</label></td>
+            <td><textarea rows="3" id="quote">{{data.quote}}</textarea></td>
         </tr>
         <tr>
-            <td><label>Start Time</label></td>
-            <td><input id="category" type ="text" value ="{{appointment.end_time}}"/></td>
+            <td><label>category</label></td>
+            <td><input id="category" type="text" value="{{data.category}}" /></td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <button id="saveButton" class="btn btn-primary">Add</button>
+                <button id="saveButton" class="btn btn-primary">Save</button>
                 <button id="cancelButton" class="btn btn-secondary">Cancel</button>
             </td>
         </tr>
+        <tr>
+            <td><label>id</label></td>
+            <td><input id="id" type="text" disabled /></td>
+        </tr>
     </tbody>
 </table>
-
 <script>
-    /*global $*/
-    /*global err*/
     $("#cancelButton").on("click", function() {
-        window.location.href = "../Final/home"
-    }); 
-    
+        window.location.href = "/Exam/Final/quotes"
+    });
     $("#saveButton").on("click", function() {
-        
         $.ajax({
-            type: "POST", 
-            url: "/Final/home/edit", 
-            dataType: "json", 
-            contentType: "application/json", 
+            type: "POST",
+            url: "/Exam/Final/home/edit",
+            dataType: "json",
+            contentType: "application/json",
             data: JSON.stringify({
-                "date": $("#date").val(), 
-                "start_time":$("#start_time").val(), 
-                "end_time": $("#end_time").val(), 
-            }), 
-            
+                "date": $("#date").val(),
+                "start_time": $("#start_time").val(),
+                "end_time": $("#end_time").val(),
+                
+            }),
             success: function(data, status) {
-                console.log("got data back", data); 
-                window.location.href = "/Exam/Final/home"; 
-            }, 
+                console.log("got data back", data);
+                window.location.href = "/Exam/Final/home";
+            },
             error: function(xhr, status, error) {
                 err = eval("(" + xhr.responseText + ")");
-                console.log(err);
-            }, 
-            complete: function(data, status) {//optional, used for debugging purposes
-            console.log(status);
+                console.error(err);
+            },
+            complete: function(data, status) { //optional, used for debugging purposes
+                console.log(status);
             }
         });
     })
 </script>
+{{!--<h1>Edit Appointment</h1>--}}
+{{!--<hr/>--}}
+
+{{!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
+
+{{!--<table>--}}
+    
+{{!--    <tbody>--}}
+
+{{!--        <tr> --}}
+{{!--            <td><label>Date</label></td>--}}
+{{!--            <td><input rows="3" id="quote">{{appointment.date}}</input></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>Start Time</label></td>--}}
+{{!--            <td><input id="category" type ="text" value ="{{appointment.start_time}}"/></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td><label>Start Time</label></td>--}}
+{{!--            <td><input id="category" type ="text" value ="{{appointment.end_time}}"/></td>--}}
+{{!--        </tr>--}}
+{{!--        <tr>--}}
+{{!--            <td></td>--}}
+{{!--            <td>--}}
+{{!--                <button id="saveButton" class="btn btn-primary">Add</button>--}}
+{{!--                <button id="cancelButton" class="btn btn-secondary">Cancel</button>--}}
+{{!--            </td>--}}
+{{!--        </tr>--}}
+{{!--    </tbody>--}}
+{{!--</table>--}}
+
+{{!--<script>--}}
+    {{!--/*global $*/--}}
+    {{!--/*global err*/--}}
+{{!--    $("#cancelButton").on("click", function() {--}}
+{{!--        window.location.href = "../Final/home"--}}
+{{!--    }); --}}
+    
+{{!--    $("#saveButton").on("click", function() {--}}
+        
+{{!--        $.ajax({--}}
+{{!--            type: "POST", --}}
+{{!--            url: "/public/Exam/Final/home/edit", --}}
+{{!--            dataType: "json", --}}
+{{!--            contentType: "application/json", --}}
+{{!--            data: JSON.stringify({--}}
+{{!--                "date": $("#date").val(), --}}
+{{!--                "start_time":$("#start_time").val(), --}}
+{{!--                "end_time": $("#end_time").val(), --}}
+{{!--            }), --}}
+{{!--            success: function(data, status) {--}}
+{{!--                console.log("got data back", data); --}}
+{{!--                window.location.href = "/Exam/Final/home"; --}}
+{{!--            }, --}}
+{{!--            error: function(xhr, status, error) {--}}
+{{!--                err = eval("(" + xhr.responseText + ")");--}}
+{{!--                console.log(err);--}}
+{{!--            }, --}}
+            {{!--complete: function(data, status) {//optional, used for debugging purposes--}}
+{{!--            console.log(status);--}}
+{{!--            }--}}
+{{!--        });--}}
+{{!--    })--}}
+{{!--</script>--}}

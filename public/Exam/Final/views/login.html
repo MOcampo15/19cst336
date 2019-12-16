@@ -1,0 +1,49 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<!-- HEADER -->
+<div class="header fadeIn">
+    <br><h1>Welcome to Scheduler!</h1>
+</div>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+                <!-- Login Form -->
+        <form>
+            <input type="email" id="emailname" class="fadeIn second" name="email" placeholder="email">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"><br>
+            <input type="submit" id="loginButton" class="button fadeIn fourth" value="Log In">
+        </form>
+
+<script>
+    $(document).ready(function() {
+        $('#loginButton').on('click', function(e) {
+            e.preventDefault(); // Do not submit until I am ready
+    
+            $.ajax({
+                type: "POST",
+                url: "/public/Exam/Final/home/login",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    "emailname": $("#email").val(),
+                    "password": $("#password").val()
+                }),
+                success: function(result, status) {
+                    if (result.successful) {
+                        window.location.href = '/home'; // This will navigate to wherever i say...
+                    }
+                    else {
+                        // Show an error message or something and stay here
+                        $('#message').html(result.message).css("color", "red");
+                        $('#message').show();
+                    }
+                },
+                error: function(xhr, status, message) {
+                    console.log("error: ", xhr.responseText);
+                }
+            });
+        });
+    });
+
+</script>
