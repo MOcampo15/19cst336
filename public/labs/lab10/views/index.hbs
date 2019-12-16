@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 <hr />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <table>
     
@@ -11,18 +12,18 @@
             <th>Author</th>
             <th>Category</th>
             <th>
-                <a class="btn btn-success" id="new" href="/labs/lab10/quotes/edit">Add New Quote</a>
+                <a class="btn btn-success" id="new" href="/labs/lab10/views/quotes/edit">Add New Quote</a>
             </th>
         </tr>
     </thead>
     <tbody>
-        {{#each quotes}}
+{{#each quotes}}
         <tr>
             <td>{{quote}}</td>
             <td>{{fullName}}</td>
             <td>{{category}}</td>
             <td>
-                <a class="btn btn-primary" href="/labs/lab10/quotes/edit?={{quoteId}}">Edit</a>
+                <a class="btn btn-primary" href="/labs/lab10/quotes/edit?id={{quoteId}}">Edit</a>
                 <a class="btn btn-danger" href="/labs/lab10/quotes/delete?id={{quoteId}}">Delete</a>
             </td>
         </tr>

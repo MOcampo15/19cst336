@@ -42,17 +42,17 @@ router.get('/quotes/edit', (req, res) => {
     if (req.query.id) {
 
         const connection = mysql.createConnection({
-           host: 'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-            user: 'pqai7eyjjnf44uh5',
-            password: 'tg0cclip6o8u6n6b',
-            database: 'ddwnbsxcdd0glq33'
+            host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+            user:'pqai7eyjjnf44uh5',
+            password:'tg0cclip6o8u6n6b',
+            database:'ddwnbsxcdd0glq33'
         });
 
         const selectOneSql = `
-SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
-FROM l9_quotes q INNER JOIN
-l9_author a ON q.authorId = a.authorId
-WHERE q.quoteId = ?
+        SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
+        FROM l9_quotes q INNER JOIN
+        l9_author a ON q.authorId = a.authorId
+        WHERE q.quoteId = ?
 `;
         // Get the data for the ID from the database, then pass into the view with the data
         connection.connect();
@@ -85,10 +85,10 @@ WHERE q.quoteId = ?
 router.post('/quotes/edit', function(req, res, next) {
 
     const connection = mysql.createConnection({
-        host: 'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'pqai7eyjjnf44uh5',
-        password: 'tg0cclip6o8u6n6b',
-        database: 'ddwnbsxcdd0glq33'
+        host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'pqai7eyjjnf44uh5',
+        password:'tg0cclip6o8u6n6b',
+        database:'ddwnbsxcdd0glq33'
     });
 
     connection.connect();
@@ -118,16 +118,16 @@ router.post('/quotes/edit', function(req, res, next) {
 
 });
 
-router.get('/quotes/delete', (req, res) => {
+router.get('/quotes/delete', (req, res, next) => {
 
     if (!req.query.id || req.query.id.length === 0) {
         return next(new Error("There is a problem"));
     }
     const connection = mysql.createConnection({
-        host: 'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'pqai7eyjjnf44uh5',
-        password: 'tg0cclip6o8u6n6b',
-        database: 'ddwnbsxcdd0glq33'
+        host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'pqai7eyjjnf44uh5',
+        password:'tg0cclip6o8u6n6b',
+        database:'ddwnbsxcdd0glq33'
     });
 
     const selectOneSql = `
@@ -166,10 +166,10 @@ router.delete('/quotes/delete', function(req, res, next) {
     // back an error message and DO NOT attempt a DELETE
 
     const connection = mysql.createConnection({
-        host: 'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'pqai7eyjjnf44uh5',
-        password: 'tg0cclip6o8u6n6b',
-        database: 'ddwnbsxcdd0glq33'
+        host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'pqai7eyjjnf44uh5',
+        password:'tg0cclip6o8u6n6b',
+        database:'ddwnbsxcdd0glq33'
     });
 
     connection.connect();

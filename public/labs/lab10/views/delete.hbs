@@ -1,5 +1,6 @@
 <h1>{{title}}</h1>
 <hr />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <table>
     <tbody>
@@ -9,7 +10,7 @@
             </td>
         </tr>
         <tr>
-            <td><label>authorId</label></td>
+            <td><label>uthorId</label></td>
             <td>
                 <input id="authorId" readonly type="text" value="{{data.authorId}}" />
                 <input id="quoteId" type="hidden" value="{{data.quoteId}}" />
@@ -38,12 +39,12 @@
 </table>
 <script>
     $("#cancelButton").on("click", function() {
-        window.location.href = "/labs/lab10/quotes"
+        window.location.href = "../public/labs/lab10/quotes"
     });
     $("#deleteButton").on("click", function() {
         $.ajax({
             type: "DELETE",
-            url: "/labs/lab10/quotes/delete",
+            url: "/lab10/quotes/delete",
             dataType: "json",
             contentType: "application/json",
             data: JSON.stringify({
