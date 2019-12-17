@@ -50,14 +50,6 @@ router.get('/home/edit', (req, res) => {
             password:'tg0cclip6o8u6n6b',
             database:'ddwnbsxcdd0glq33'
         });
-
-        const selectOneSql = `
-        SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
-        FROM l9_quotes q INNER JOIN
-        l9_author a ON q.authorId = a.authorId
-        WHERE q.quoteId = ?
-`;
-        // Get the data for the ID from the database, then pass into the view with the data
         connection.connect();
 
         connection.query(selectOneSql, [req.query.id],
