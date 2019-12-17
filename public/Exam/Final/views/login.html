@@ -1,49 +1,64 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<<link href="css/styles.css" rel="stylesheet" type="text/css" />
-<!-- HEADER -->
-<div class="header fadeIn">
-    <br><h1>Welcome to Scheduler!</h1>
-</div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="494516871370-6i9iaqgjgjeh8gd8hiau831e7ikas0sr.apps.googleusercontent.com">
 
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-                <!-- Login Form -->
-        <form>
-            <input type="email" id="emailname" class="fadeIn second" name="email" placeholder="email">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Password"><br>
-            <input type="submit" id="loginButton" class="button fadeIn fourth" value="Log In">
+<h1 class="text-center">Welcome to Scheduler!</h1>
+<!-- Login Form -->
+        <form class ="text-center">
+            <input type="email" id="emailname" class="fadeIn second text-center" name="email" placeholder="email">
+            <input type="password" id="password" class="fadeIn third text-center" name="password" placeholder="Password"><br>
+            <br>
+            <button id="loginButton" class="btn btn-primary fadeIn fourth mb-2">Login</button>
+            </div>
         </form>
+
+    </div>
+</div>
 
 <script>
     $(document).ready(function() {
+        
+        // $('#message').hide();
         $('#loginButton').on('click', function(e) {
-            e.preventDefault(); // Do not submit until I am ready
-    
+            // Do not submit until I am ready
+            e.preventDefault();
             $.ajax({
                 type: "POST",
-                url: "/public/Exam/Final/home/login",
+                url: "/views/login",
                 dataType: "json",
                 contentType: "application/json",
                 data: JSON.stringify({
-                    "emailname": $("#email").val(),
+                    "email": $("#login").val(),
                     "password": $("#password").val()
                 }),
                 success: function(result, status) {
+                    console.log("got login status back", result);
                     if (result.successful) {
-                        window.location.href = '/home'; // This will navigate to wherever i say...
+                        // This will navigate to wherever i say...
+                        window.location.href = '/login';
                     }
                     else {
                         // Show an error message or something and stay here
-                        $('#message').html(result.message).css("color", "red");
+                        $('#message').html(result.message);
                         $('#message').show();
                     }
                 },
-                error: function(xhr, status, message) {
-                    console.log("error: ", xhr.responseText);
+                error: function(xhr, status, error) {
+                    err = eval("error: (" + xhr.responseText + ")");
+                    console.error(err);
+                },
                 }
             });
-        });
+        })
+        
+            function onSignIn(googleUser) 
+                 var profile = googleUser.getBasicProfile();
+                 console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                 console.log('Name: ' + profile.getName());
+                 console.log('Image URL: ' + profile.getImageUrl());
+                 console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     });
-
+    
 </script>
+

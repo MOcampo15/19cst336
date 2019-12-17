@@ -1,21 +1,21 @@
-<h1>{{title}}</h1>
+<h1 class="text-center">Edit Appointment</h1>
 <hr />
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <table>
     <tbody>
         <tr>
-            <td><label>authorId</label></td>
+            <td><label>Date</label></td>
             <td>
-                <input id="date" type="text" value="{{data.date}}"/>
+                <input id="date" type="date" value="{{data.date}}"/>
             </td>
         </tr>
         <tr>
-            <td><label>quote</label></td>
-            <td><textarea rows="3" id="quote">{{data.quote}}</textarea></td>
+            <td><label>Start Time</label></td>
+            <td><input id="startTime" type="time">{{data.start_time}}</textarea></td>
         </tr>
         <tr>
-            <td><label>category</label></td>
-            <td><input id="category" type="text" value="{{data.category}}" /></td>
+            <td><label>End Time</label></td>
+            <td><input id="endTime" type="time">{{data.end_time}}</textarea></td>
         </tr>
         <tr>
             <td></td>
@@ -24,15 +24,11 @@
                 <button id="cancelButton" class="btn btn-secondary">Cancel</button>
             </td>
         </tr>
-        <tr>
-            <td><label>id</label></td>
-            <td><input id="id" type="text" disabled /></td>
-        </tr>
     </tbody>
 </table>
 <script>
     $("#cancelButton").on("click", function() {
-        window.location.href = "/Exam/Final/quotes"
+        window.location.href = "/Exam/Final/home"
     });
     $("#saveButton").on("click", function() {
         $.ajax({
@@ -60,67 +56,3 @@
         });
     })
 </script>
-{{!--<h1>Edit Appointment</h1>--}}
-{{!--<hr/>--}}
-
-{{!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
-
-{{!--<table>--}}
-    
-{{!--    <tbody>--}}
-
-{{!--        <tr> --}}
-{{!--            <td><label>Date</label></td>--}}
-{{!--            <td><input rows="3" id="quote">{{appointment.date}}</input></td>--}}
-{{!--        </tr>--}}
-{{!--        <tr>--}}
-{{!--            <td><label>Start Time</label></td>--}}
-{{!--            <td><input id="category" type ="text" value ="{{appointment.start_time}}"/></td>--}}
-{{!--        </tr>--}}
-{{!--        <tr>--}}
-{{!--            <td><label>Start Time</label></td>--}}
-{{!--            <td><input id="category" type ="text" value ="{{appointment.end_time}}"/></td>--}}
-{{!--        </tr>--}}
-{{!--        <tr>--}}
-{{!--            <td></td>--}}
-{{!--            <td>--}}
-{{!--                <button id="saveButton" class="btn btn-primary">Add</button>--}}
-{{!--                <button id="cancelButton" class="btn btn-secondary">Cancel</button>--}}
-{{!--            </td>--}}
-{{!--        </tr>--}}
-{{!--    </tbody>--}}
-{{!--</table>--}}
-
-{{!--<script>--}}
-    {{!--/*global $*/--}}
-    {{!--/*global err*/--}}
-{{!--    $("#cancelButton").on("click", function() {--}}
-{{!--        window.location.href = "../Final/home"--}}
-{{!--    }); --}}
-    
-{{!--    $("#saveButton").on("click", function() {--}}
-        
-{{!--        $.ajax({--}}
-{{!--            type: "POST", --}}
-{{!--            url: "/public/Exam/Final/home/edit", --}}
-{{!--            dataType: "json", --}}
-{{!--            contentType: "application/json", --}}
-{{!--            data: JSON.stringify({--}}
-{{!--                "date": $("#date").val(), --}}
-{{!--                "start_time":$("#start_time").val(), --}}
-{{!--                "end_time": $("#end_time").val(), --}}
-{{!--            }), --}}
-{{!--            success: function(data, status) {--}}
-{{!--                console.log("got data back", data); --}}
-{{!--                window.location.href = "/Exam/Final/home"; --}}
-{{!--            }, --}}
-{{!--            error: function(xhr, status, error) {--}}
-{{!--                err = eval("(" + xhr.responseText + ")");--}}
-{{!--                console.log(err);--}}
-{{!--            }, --}}
-            {{!--complete: function(data, status) {//optional, used for debugging purposes--}}
-{{!--            console.log(status);--}}
-{{!--            }--}}
-{{!--        });--}}
-{{!--    })--}}
-{{!--</script>--}}

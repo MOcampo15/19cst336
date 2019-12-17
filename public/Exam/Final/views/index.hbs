@@ -1,20 +1,22 @@
-<h1>{{title}}</h1>
-<hr />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
-<button class="button fadeIn fourth" id="backButton" onclick="window.location.href='/login'" style="color:black;">Login</button>
+
+
+<button class="button fadeIn fourth" id="backButton" onclick="window.location.href='../public/Exam/Final/views/login'" style="color:black;">Login</button>
+<h1 class="text-center">{{title}}</h1>
+<hr />
 <table>
     
     <thead>
         
         <tr>
            
-            <th class="w-50">Date</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th class="w-50 text-center">Date</th>
+            <th class="w-15">Start Time</th>
+            <th class="w-15">End Time</th>
             <th>
-                <a class="btn btn-success" id="new" href="/Exam/Final/home/edit">Add Time Slot</a>
+                <a class="btn btn-success" id="new" href="/Exam/Final/home/views/edit">Add Time Slot</a>
             </th>
         </tr>
     </thead>
@@ -32,198 +34,113 @@
 {{/each}}
     </tbody>
 </table>
-{{!--<!DOCTYPE html>--}}
-{{!--<html>--}}
-{{!--    <head>--}}
-{{!--        <title>Final Exam: Header</title>--}}
-{{!--        <link rel="stylesheet" href="/css/styles.css" />--}}
-{{!--        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>--}}
-{{!--        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">--}}
-{{!--        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>--}}
-{{!--    </head>--}}
-    
-{{!--    <body>--}}
         {{!-- BUTTONS ON TOP --}}
-{{!--        <a class="button fadeIn" href="/" style="color:black;">Log Out</a>--}}
+        {{!--<a class="button fadeIn" href="/" style="color:black;">Log Out</a>--}}
         
         {{!-- DISPLAYS CURRENT APPOINTMENTS --}}
-{{!--        <div class="wrapper fadeInDown">--}}
-{{!--            <div class="header">--}}
-{{!--                <h3>Appointments/h3>--}}
-{{!--            </div>--}}
-{{!--            <table id="formContent">--}}
-{{!--                {{#each class}}--}}
-{{!--                <tr>--}}
-{{!--                    <td>{{this.date}}</td>--}}
-{{!--                    <td>{{this.start_time}}</td>--}}
-{{!--                    <td>{{this.end_time}}</td>--}}
-{{!--                </tr>--}}
-{{!--                {{/each}}--}}
-{{!--            </table>--}}
-{{!--        </div>--}}
+        <div class="wrapper fadeInDown">
+            <div class="header">
+                {{!--<h3>Appointments</h3>--}}
+            </div>
+            <table id="formContent">
+                {{#each class}}
+                <tr>
+                    <td>{{this.date}}</td>
+                    <td>{{this.start_time}}</td>
+                    <td>{{this.end_time}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
         
-        {{!-- OPTION TO DELETE APPOINTMENT --}}
-{{!--        <input type="text" id="deleteClass" class="fadeIn" style="width:6%;height:10px;" name="deleteClass">--}}
-{{!--        <button id="deleteButton" class="button fadeIn">Delete Appointment</button><br><br>--}}
-{{!--        <span id="deleteButtonError"></span>--}}
-        
-        {{!-- ADD A CLASS --}}
-{{!--        <div class="header fadeInDown">--}}
-{{!--            <h3>Add Appointment</h3>--}}
-{{!--        </div>--}}
-{{!--        <div class="wrapper fadeInDown">--}}
-{{!--            <div id="formContent">--}}
-{{!--                <form><br>--}}
-                    {{!-- DISPLAYS BUILDING LOCATIONS --}}
-{{!--                    <label for="location">Location of Class:</label><br>--}}
-{{!--                    <select id="location" class="fadeIn fourth">--}}
-{{!--                        <option value="">Select One</option>--}}
-{{!--                        {{#each buildings}}--}}
-{{!--                            <option value={{this.number}}>{{this.buildingname}}</option>--}}
-{{!--                        {{/each}} --}}
-{{!--                    </select>--}}
-                    
-                    {{!-- CLASS NAME --}}
-{{!--                    <br><label for="className">Class Title</label><br>--}}
-{{!--                    <input type="text" id="className" class="fadeIn fourth" name="className" required>--}}
-                    
-                    {{!-- CLASS TIME --}}
-{{!--                    <br><label for="time">Time</label><br>--}}
-{{!--                    <input type="text" class="timepicker" name="time" id="time"/>--}}
-{{!--                    <input type="submit" id="addClass" class="button fadeIn sixth" value="Add Class"><br><br>--}}
-{{!--                    <span id="errorMessage"></span>--}}
-{{!--                </form>--}}
-{{!--            </div>--}}
-{{!--        </div><br>--}}
-        
-        {{!-- FOOTER --}}
-{{!--        <hr><br>--}}
-{{!--        <footer>--}}
-{{!--            CST336: Internet Programming<br> &copy; 2019. Parking Waze<br> --}}
-{{!--            Disclaimer: The information in this page might be inaccurate.<br> --}}
-{{!--            It is used for academic purposes only.<br><br>--}}
-{{!--        </footer>--}}
-{{!--        <script>--}}
-{{!--            $(document).ready(function() {--}}
-{{!--                $('input.timepicker').timepicker({});--}}
-{{!--            });--}}
-        
-{{!--            $('.timepicker').timepicker({--}}
-{{!--                timeFormat: 'HH:mm p',--}}
-{{!--                interval: 60,--}}
-{{!--                minTime: '0',--}}
-{{!--                maxTime: '10:00pm',--}}
-{{!--                defaultTime: '11',--}}
-{{!--                startTime: '0:00',--}}
-{{!--                dynamic: false,--}}
-{{!--                dropdown: true,--}}
-{{!--                scrollbar: true,--}}
-{{!--            });--}}
-        
-{{!--            $("#addClass").on("click", function(e) {--}}
-                {{!--e.preventDefault(); // Do not submit until I am ready--}}
-                
-{{!--                let location = $("#location").val();--}}
-{{!--                let name = $("#className").val();--}}
-{{!--                let time = $("#time").val();--}}
-                
-                {{!--// CHECK IF ALL VALUES ARE FILLED --}}
-{{!--                if(location == "" || name == "" || time == "") {--}}
-{{!--                    $("#errorMessage").html("Missing selection above<br><br>").css("color", "red"); --}}
-{{!--                } else { --}}
-{{!--                    $.ajax({--}}
-{{!--                        type: "POST",--}}
-{{!--                        url: "/user",--}}
-{{!--                        dataType: "json",--}}
-{{!--                        contentType: "application/json",--}}
-{{!--                        data: JSON.stringify({--}}
-{{!--                            "location": location,--}}
-{{!--                            "name": name,--}}
-{{!--                            "time": time--}}
-{{!--                        }),--}}
-{{!--                        success: function(result, status) {--}}
-{{!--                            if (result.successful) {--}}
-                                {{!--// RELOAD THE PAGE --}}
-                                {{!--window.location.href = '/user'; // This will navigate to wherever i say...--}}
-{{!--                            }--}}
-{{!--                            else {--}}
-                                {{!--// Show an error message or something and stay here--}}
-{{!--                                $('#errorMessage').html(result.message).css("color", "red");--}}
-{{!--                                $('#errorMessage').show();--}}
-{{!--                            }--}}
-{{!--                        },--}}
-{{!--                        error: function(xhr, status, message) {--}}
-{{!--                            console.log("error: ", xhr.responseText);--}}
-{{!--                        }--}}
-{{!--                    });--}}
-{{!--                } --}}
-{{!--            });--}}
-            
-{{!--            $("#deleteButton").on("click", function() {--}}
-{{!--                let classToDelete = $("#deleteClass").val();--}}
-                
-{{!--                if(classToDelete == "") {--}}
-{{!--                    $("#deleteButtonError").html("Error, nothing typed...<br><br>").css("color", "red"); --}}
-{{!--                } else {--}}
-{{!--                    $.ajax({--}}
-{{!--                        type: "POST",--}}
-{{!--                        url: "/user",--}}
-{{!--                        dataType: "json",--}}
-{{!--                        contentType: "application/json",--}}
-{{!--                        data: JSON.stringify({--}}
-{{!--                            deleteClass: classToDelete--}}
-{{!--                        }),--}}
-{{!--                        success: function(result, status) {--}}
-{{!--                            if (result.successful) {--}}
-{{!--                                // RELOAD THE PAGE --}}
-{{!--                                $("#deleteButtonError").html(""); --}}
-                                {{!--window.location.href = '/user'; // This will navigate to wherever i say...--}}
-{{!--                            }--}}
-{{!--                            else {--}}
-                                {{!--// Show an error message or something and stay here--}}
-{{!--                                $('#deleteButtonError').html(result.message).css("color", "red");--}}
-{{!--                                $('#deleteButtonError').show();--}}
-{{!--                            }--}}
-{{!--                        },--}}
-{{!--                        error: function(xhr, status, message) {--}}
-{{!--                            console.log("error: ", xhr.responseText);--}}
-{{!--                        }--}}
-{{!--                    });--}}
-{{!--                }--}}
-{{!--            }); --}}
-{{!--        </script>--}}
-{{!--    </body>--}}
-{{!--</html>--}}
-{{!--<h1>Final Exam: Scheduler</h1>--}}
-{{!--<hr />--}}
-{{!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--}}
-{{!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--}}
-{{!--<table>--}}
-    
-{{!--    <thead>--}}
-        
-{{!--        <tr>--}}
-            
-{{!--            <th class="w-25">Quote</th>--}}
-{{!--            <th>Date</th>--}}
-{{!--            <th>Start Time</th>--}}
-{{!--            <th>Duration</th>--}}
-{{!--            <th>--}}
-{{!--                <a class="btn btn-success" id="new" href="/labs/lab10/views/quotes/edit">Add New Quote</a>--}}
-{{!--            </th>--}}
-{{!--        </tr>--}}
-{{!--    </thead>--}}
-{{!--    <tbody>--}}
-{{!--{{#each quotes}}--}}
-{{!--        <tr>--}}
-{{!--            <td>{{date}}</td>--}}
-{{!--            <td>{{start_time}}</td>--}}
-{{!--            <td>{{end_time}}</td>--}}
-{{!--            <td>--}}
-{{!--                <a class="btn btn-primary" href="/labs/lab10/quotes/edit?id={{quoteId}}">Edit</a>--}}
-{{!--                <a class="btn btn-danger" href="/labs/lab10/quotes/delete?id={{quoteId}}">Delete</a>--}}
-{{!--            </td>--}}
-{{!--        </tr>--}}
-{{!--{{/each}}--}}
-{{!--    </tbody>--}}
-{{!--</table>--}}
+        <table>
+<thead>
+<tr>
+<th style="text-align:left">#</th>
+<th style="text-align:left">Task Description</th>
+<th style="text-align:left">Points</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="color:green;" style="text-align:left">1</td>
+<td style="color:green;"style="text-align:left green">You provide a ERD diagram representing the data and its relationships. This may be included in Cloud9 as a picture or from a designer tool</td>
+<td style="color:green;"style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="color:green;"style="text-align:left">2</td>
+<td style="color:green;"style="text-align:left">Tables in MySQL match the ERD and support the requirements of the application</td>
+<td style="color:green;"style="text-align:left green">20</td>
+</tr>
+<tr>
+<td style="color:orange;"style="text-align:left">3</td>
+<td style="color:orange;"style="text-align:left">The list of available appointments is pulled from MySQL using the API endpoint and displayed using the specified page design</td>
+<td style="color:orange;"style="text-align:left">20</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">4</td>
+<td style="color:red;"style="text-align:left">Available times with dates in the past do not show up in the Dashboard list</td>
+<td style="color:red;"style="text-align:left">5</td>
+</tr>
+<tr>
+<td style="color:green;"style="text-align:left">5</td>
+<td style="color:green;"style="text-align:left">A user can add an available time slot to the MySQL using the API endpoint and displayed using the specified modal design</td>
+<td style="color:green;"style="text-align:left">20</td>
+</tr>
+<tr>
+<td style="color:orange;"style="text-align:left">6</td>
+<td style="color:orange;"style="text-align:left">A user can remove an available time slot from MySQL using the API endpoint</td>
+<td style="color:orange;"style="text-align:left">15</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">7</td>
+<td style="color:red;"style="text-align:left">The user confirms the removal using the specified modal design</td>
+<td style="color:red;"style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">TOTAL</td>
+<td style="text-align:left">100</td>
+</tr>
+<tr>
+<td style="color:green;"style="text-align:left"></td>
+<td style="color:green;"style="text-align:left">This rubric is properly included AND UPDATED (BONUS)</td>
+<td style="color:green;"style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="color:orange;"style="text-align:left">BD</td>
+<td style="color:orange;"style="text-align:left">Login works with a User table and BCrypt</td>
+<td style="color:orange;"style="text-align:left">20</td>
+</tr>
+<tr>
+<td style="color:orange;"style="text-align:left">BD</td>
+<td style="color:orange;"style="text-align:left">Add Google Signin for app login</td>
+<td style="color:orange;"style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="color:green;"style="text-align:left">BD</td>
+<td style="color:green;"style="text-align:left">The app is deployed to Heroku</td>
+<td style="color:green;"style="text-align:left">5</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">BD</td>
+<td style="color:red;"style="text-align:left">A banner file can be uploaded and displayed</td>
+<td style="color:red;"style="text-align:left">20</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">BD</td>
+<td style="color:red;"style="text-align:left">The user can add multiple available time slots as specified</td>
+<td style="color:red;"style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">BD</td>
+<td style="color:red;"style="text-align:left">In a separate page, you show the correct list of available time slots to the user who navigates to the correct invitation URL</td>
+<td style="color:red;"style="text-align:left">10</td>
+</tr>
+<tr>
+<td style="color:red;"style="text-align:left">BD</td>
+<td style="color:red;"style="text-align:left">You correctly implement booking of the appointement, including all side effects</td>
+<td style="color:red;"style="text-align:left">30</td>
+</tr>
+</tbody>
+</table>

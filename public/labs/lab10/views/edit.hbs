@@ -1,7 +1,7 @@
-<h1>{{title}}</h1>
-<hr />
+<h1 class="text-center">Add Appointment</h1>
+<hr/>
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="https: stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <table>
     
@@ -9,19 +9,18 @@
         
         <tr>
             
-            <td><label>authorId</label></td>
+            <td><label>Date</label></td>
             <td>
-                <input id="authorId" type="text" value="{{data.authorId}}"/>
-                <input id="quoteId" type="hidden" value="{{data.quoteId}}"/>
+                <input id="date" type="date" value="{{data.date}}"/>
             </td>
         </tr>
         <tr> 
-            <td><label>Quote</label></td>
-            <td><textarea rows="3" id="quote">{{data.quote}}</textarea></td>
+            <td><label>Start Time</label></td>
+            <td><input id="startTime" type="time" value="{{data.start_time}}"/>
         </tr>
         <tr>
-            <td><label>Category</label></td>
-            <td><input id="category" type ="text" value ="{{data.category}}"/></td>
+            <td><label>End Time</label></td>
+            <td><input id="endTime" type="time" value="{{data.end_time}}"/>
         </tr>
         <tr>
             <td></td>
@@ -30,44 +29,38 @@
                 <button id="cancelButton" class="btn btn-secondary">Cancel</button>
             </td>
         </tr>
-        <tr>
-            <td><label>Id</label></td>
-            <td><input id="id" type="text" disabled/></td>
-        </tr>
     </tbody>
 </table>
-
-//     /*global $*/
-//     /*global err*/
-//     $("#cancelButton").on("click", function() {
-//         window.location.href = "../lab10/quotes"
-//     }); 
-    
-//     $("#saveButton").on("click", function() {
+<script>
+    /*global $*/
+    /*global err*/
+    $("#cancelButton").on("click", function() {
+         window.location.href = "../Final/home"
+    }); 
+       $("#saveButton").on("click", function() {
         
-//         $.ajax({
-//             type: "POST", 
-//             url: "/labs/lab10/quotes/edit", 
-//             dataType: "json", 
-//             contentType: "application/json", 
-//             data: JSON.stringify({
-//                 "quoteId": $("#quoteId").val(), 
-//                 "authorId":$("#authorId").val(), 
-//                 "quote": $("#quote").val(), 
-//                 "category":$("#category").val(), 
-//             }), 
+          $.ajax({
+              type: "POST", 
+              url: "/Exam/Final/home/edit", 
+              dataType: "json", 
+              contentType: "application/json", 
+              data: JSON.stringify({
+                  "date": $("#date").val(), 
+                  "startTime":$("#start_time").val(), 
+                  "endTime": $("#end_time").val(), 
+              }), 
             
-//             success: function(data, status) {
-//                 console.log("got data back", data); 
-//                 window.location.href = "/labs/lab10/quotes"; 
-//             }, 
-//             error: function(xhr, status, error) {
-//                 err = eval("(" + xhr.responseText + ")");
-//                 console.log(err);
-//             }, 
-//             complete: function(data, status) {//optional, used for debugging purposes
-//             console.log(status);
-//             }
-//         });
-//     })
-// </script>
+              success: function(data, status) {
+                  console.log("got data back", data); 
+                  window.location.href = "/Exam/Final/home"; 
+              }, 
+              error: function(xhr, status, error) {
+                  err = eval("(" + xhr.responseText + ")");
+                  console.log(err);
+              }, 
+              complete: function(data, status) { optional, used for debugging purposes
+              console.log(status);
+              }
+          });
+      })
+  </script>

@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 
-router.get('/login', function(req, res, next) {
+
+router.get('/public/Exam/Final/views/login.html', function(req, res, next) {
     res.render("login.html");
 });
 router.get('/home', function(req, res, next) {
@@ -124,30 +125,24 @@ router.get('/home/delete', (req, res) => {
         return next(new Error("There is a problem"));
     }
     const connection = mysql.createConnection({
-        host: 'p2d0untihotgr5f6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'zsn9kncqtvumywkk',
-        password: 'jrj24hhp4uchfj03',
-        database: 'pvfhxur2aptwj0sr'
+        host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'pqai7eyjjnf44uh5',
+        password:'tg0cclip6o8u6n6b',
+        database:'ddwnbsxcdd0glq33'
     });
 
-    const selectOneSql = `
-SELECT q.*, CONCAT(a.firstName, ' ', a.lastName) AS 'fullName', a.sex AS 'gender'
-FROM l9_quotes q INNER JOIN
-l9_author a ON q.authorId = a.authorId
-WHERE q.quoteId = ?
-`;
     // Get the data for the ID from the database, then pass into the view with the data
     connection.connect();
 
-    connection.query(selectOneSql, [req.query.id],
+    connection.query(selectOneSql, [req.query.date],
         function(error, results, fields) {
 
             //console.log('results', results[0]);
 
             if (error) throw error;
 
-            res.render('../public/labs/10/views/delete', {
-                title: 'Lab 10 Delete Quote',
+            res.render('../public/Exam/Final/views/delete', {
+                title: 'Delete Appointment',
                 data: results[0]
             });
         });
@@ -161,25 +156,21 @@ router.delete('/home/delete', function(req, res, next) {
     if (!req.body.quoteId || req.body.quoteId.length === 0) {
         return next(new Error("There is a problem"));
     }
-    
-    // Add check to see if there are any favorites, and if there are, send
-    // back an error message and DO NOT attempt a DELETE
-
     const connection = mysql.createConnection({
-        host: 'p2d0untihotgr5f6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'zsn9kncqtvumywkk',
-        password: 'jrj24hhp4uchfj03',
-        database: 'pvfhxur2aptwj0sr'
+        host:'ui0tj7jn8pyv9lp6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user:'pqai7eyjjnf44uh5',
+        password:'tg0cclip6o8u6n6b',
+        database:'ddwnbsxcdd0glq33'
     });
 
     connection.connect();
 
     connection.query(
-        'DELETE FROM l9_quotes WHERE quoteId = ?', [req.body.quoteId], // assuming POST
+        'DELETE FROM appointment WHERE new_appt = ?', [req.body.new_appt], // assuming POST
         (error, results, fields) => {
             if (error) throw error;
             res.json({
-                id: results.quoteId
+                id: results.new_appt
             });
         });
 

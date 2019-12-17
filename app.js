@@ -5,7 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 
+
 var app = express();
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
+
 
 //Setup your own routes
 var indexRouter = require('./routes/index');
